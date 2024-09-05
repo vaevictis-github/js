@@ -1,0 +1,20 @@
+function buscar() {
+    //obter a seção de resultados
+    let section = document.getElementById("search-results")
+
+    //inicializar a string de resultados
+    let results = ""
+
+    //iterar sobre os dados e construir o HTML
+    for (let itemdata of data) {
+        results += `
+            <div class="item-results">
+                <h2>${itemdata.title}</h2>
+                <p class="about-meta">${itemdata.about}</p>
+                <a href="${itemdata.link}" target="_blank">sample-text</a>
+            </div>
+        `
+    }
+    //atualizar o HTML
+    section.innerHTML = results
+}
