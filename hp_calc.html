@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LC Magic</title>
+</head>
+
+<body>
+    <header>LC Magic</header>
+    <main>
+        <section>
+            <div>
+                <input type="number" id="inputHealth" placeholder="Your init HP">
+                <button onclick="defineHealth()">Confirm</button>
+                <p id="r_initHealth"></p>
+            </div>
+            <div>
+                <input type="number" id="inputDamage" placeholder="DMG received">
+                <button onclick="calcDamage()">Confirm</button>
+                <p id="r_damage"></p>
+            </div>
+            <div>
+                <p id="r_health"></p>
+            </div>
+        </section>
+    </main>
+    <script>
+
+        let initHealth = 0
+
+        function defineHealth() {
+
+            initHealth = parseFloat(document.getElementById("inputHealth").value)
+
+            document.getElementById("r_initHealth").innerHTML = `Your init HP: ${initHealth}`
+
+        }
+
+        function calcDamage() {
+
+            let damage = parseFloat(document.getElementById("inputDamage").value)
+            document.getElementById("r_damage").innerHTML = `DMG received: ${damage}`
+
+            let health = initHealth - damage
+            document.getElementById("r_health").innerHTML = `Remaining HP: ${health}`
+
+            if (health <= 0) {
+                document.getElementById("r_health").innerHTML = `Remaining HP: ${health}. You're dead!`
+            }
+        }
+    </script>
+</body>
+
+</html>
